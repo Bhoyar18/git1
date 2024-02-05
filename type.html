@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #output::after{
+            content: "_";
+        }
+        #output{
+            background-color: greenyellow;
+            color:grey;
+
+        }
+    </style>
+
+
+    <script>
+        let str = "The developers are here";
+        let len = str.length;
+        console.log(len);
+        let count = 0;
+        let store = '';
+
+        function run(){
+            setInterval(typewriter,500);//500=half second, 1000=1second, 2000=2second, 3000=3second
+            function typewriter(){
+                if(len>count){
+                store = store+str[count]
+            document.querySelector('#output').innerHTML = store;
+            count++;
+            }
+        
+            else{
+                store='';
+                count = 0;
+                // clearInterval()
+                // document.querySelector('#output').style.after.content = "none"
+              }
+        }
+    }
+    </script>
+</head>
+<body onload="run()">
+    <h1 id="output"></h1>
+
+    
+</body>
+</html>
